@@ -1,0 +1,176 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar1
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.6.0/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.6.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.6.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: '汶川地震10个区域的生物维持性',
+    left:'center'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['震前平均', '震中平均', '5年后平均','生物维持性'],
+    top: 20
+},
+
+  toolbox: {
+    show: true,
+    feature: {
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line', 'bar'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  calculable: true,
+  xAxis: [
+    {
+      type: 'category',
+      // prettier-ignore
+      data: ['什邡市', '北川县', '安州区', '平武县', '彭州市', '九寨沟县', '绵竹市', '茂县', '都江堰市', '青川县']
+
+    },
+   
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    },
+    {
+          type: 'value',
+          name: '生物维持性',
+          position: 'right'
+        }
+  ],
+  series: [
+    {
+      name: '震前平均',
+      type: 'bar',
+      data: [
+      5373.13,
+      7888.83,
+      4791.79,
+      7778.66,
+      5056.63,
+      7028.96,
+      5325.22,
+      7818.21,
+      5677.16,
+      7454.9
+],
+
+
+      
+      
+    },
+    {
+      name: '震中平均',
+      type: 'bar',
+      data: [
+      4518.06,
+      7867.61,
+      4486.38,
+      7875.6,
+      4353.13,
+      6560.14,
+      4662.28,
+      7701.88,
+      4852.34,
+      7529.69
+],
+
+
+     
+      
+    },
+    {
+      name: '5年后平均',
+      type: 'bar',
+      data: [
+      4532,
+      7909.49,
+      7909.49,
+      7954.72,
+      4335.47,
+      6695.91,
+      4765.81,
+      7797.94,
+      4929.92,
+      7755.07
+],
+
+
+      
+      
+    },
+    {
+          name: '生物维持性',
+          type: 'line',
+          yAxisIndex: 1,
+          data: [
+          0.843456235,
+          1.002618893,
+          1.650633688,
+          1.022633718,
+          0.857383277,
+          0.952617457,
+          0.894950819,
+          0.997407335,
+          0.868377851,
+          1.040264792
+]
+
+,}
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
